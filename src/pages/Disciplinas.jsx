@@ -1,29 +1,31 @@
 import { Link } from "react-router-dom";
 
+const base = import.meta.env.BASE_URL;
+
 const disciplinas = [
   {
     nombre: "Fútbol",
     descripcion: "Categorías infantiles, juveniles y mayores.",
     ruta: "futbol",
-    imagen: "/clublamarque/disciplinas/futbol.jpeg",
+    imagen: `${base}disciplinas/futbol.jpeg`,
   },
   {
     nombre: "Vóley",
     descripcion: "Entrenamientos mixtos y competición local.",
     ruta: "voley",
-    imagen: "/clublamarque/disciplinas/voley.webp",
+    imagen: `${base}disciplinas/voley.webp`,
   },
   {
     nombre: "Básquet",
     descripcion: "Formación deportiva desde temprana edad.",
     ruta: "basquet",
-    imagen: "/clublamarque/disciplinas/basquet.jpeg",
+    imagen: `${base}disciplinas/basquet.jpeg`,
   },
   {
     nombre: "Tenis",
     descripcion: "Clases y torneos recreativos para todas las edades.",
     ruta: "tenis",
-    imagen: "/clublamarque/disciplinas/tenis.jpeg",
+    imagen: `${base}disciplinas/tenis.jpeg`,
   },
 ];
 
@@ -45,10 +47,13 @@ export default function Disciplinas() {
               alt={disc.nombre}
               className="w-full h-48 object-cover rounded-md mb-4"
             />
-            <h2 className="text-xl font-extrabold text-azulgrana-azul mb-2">{disc.nombre}</h2>
-            <p className="text-center text-gray-700 mb-6">{disc.descripcion}</p>
+            <h2 className="text-xl font-extrabold text-azulgrana-azul mb-2">
+              {disc.nombre}
+            </h2>
+            <p className="text-center text-gray-700 mb-6">
+              {disc.descripcion}
+            </p>
 
-            {/* Solo botón INSCRIBIRSE */}
             <Link
               to="/inscripciones"
               className="bg-azulgrana-rojo hover:bg-red-700 text-white px-5 py-2 rounded-full transition-all duration-300 text-sm font-semibold"

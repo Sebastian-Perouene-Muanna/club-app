@@ -4,6 +4,8 @@ import { Fragment } from "react";
 import { useAuth } from "../context/AuthContext";
 import { FaBars } from "react-icons/fa";
 
+const base = import.meta.env.BASE_URL;
+
 export default function Navbar() {
   const { usuario } = useAuth();
 
@@ -13,7 +15,7 @@ export default function Navbar() {
       <div className="absolute inset-0 flex justify-center items-center z-10">
         <Link to="/">
           <img
-            src="/clublamarque/esc/escudo22.png"
+            src={`${base}esc/escudo22.png`}
             alt="Escudo CAL"
             className="h-48 w-auto drop-shadow-lg animate-latido cursor-pointer"
           />
@@ -23,11 +25,9 @@ export default function Navbar() {
       {/* Menú hamburguesa */}
       <div className="absolute top-6 right-6 z-20">
         <Menu as="div" className="relative inline-block text-left">
-          <div>
-            <Menu.Button className="text-white text-2xl p-2 rounded-full bg-transparent hover:bg-[#B80000] transition-all duration-300 focus:outline-none">
-              <FaBars />
-            </Menu.Button>
-          </div>
+          <Menu.Button className="text-white text-2xl p-2 rounded-full bg-transparent hover:bg-[#B80000] transition-all duration-300 focus:outline-none">
+            <FaBars />
+          </Menu.Button>
 
           <Transition
             as={Fragment}
@@ -42,31 +42,48 @@ export default function Navbar() {
               <div className="py-1">
                 <Menu.Item>
                   {({ active }) => (
-                    <Link to="/" className={`block px-4 py-2 ${active ? "bg-[#B80000] text-white" : ""}`}>
+                    <Link
+                      to="/"
+                      className={`block px-4 py-2 ${
+                        active ? "bg-[#B80000] text-white" : ""
+                      }`}
+                    >
                       Inicio
                     </Link>
                   )}
                 </Menu.Item>
-
                 <Menu.Item>
                   {({ active }) => (
-                    <Link to="/disciplinas" className={`block px-4 py-2 ${active ? "bg-[#B80000] text-white" : ""}`}>
+                    <Link
+                      to="/disciplinas"
+                      className={`block px-4 py-2 ${
+                        active ? "bg-[#B80000] text-white" : ""
+                      }`}
+                    >
                       Disciplinas
                     </Link>
                   )}
                 </Menu.Item>
-
                 <Menu.Item>
                   {({ active }) => (
-                    <Link to="/historia" className={`block px-4 py-2 ${active ? "bg-[#B80000] text-white" : ""}`}>
+                    <Link
+                      to="/historia"
+                      className={`block px-4 py-2 ${
+                        active ? "bg-[#B80000] text-white" : ""
+                      }`}
+                    >
                       Historia
                     </Link>
                   )}
                 </Menu.Item>
-
                 <Menu.Item>
                   {({ active }) => (
-                    <Link to="/tienda" className={`block px-4 py-2 ${active ? "bg-[#B80000] text-white" : ""}`}>
+                    <Link
+                      to="/tienda"
+                      className={`block px-4 py-2 ${
+                        active ? "bg-[#B80000] text-white" : ""
+                      }`}
+                    >
                       Tienda
                     </Link>
                   )}
@@ -76,14 +93,24 @@ export default function Navbar() {
                   <>
                     <Menu.Item>
                       {({ active }) => (
-                        <Link to="/perfil" className={`block px-4 py-2 ${active ? "bg-[#B80000] text-white" : ""}`}>
+                        <Link
+                          to="/perfil"
+                          className={`block px-4 py-2 ${
+                            active ? "bg-[#B80000] text-white" : ""
+                          }`}
+                        >
                           Perfil
                         </Link>
                       )}
                     </Menu.Item>
                     <Menu.Item>
                       {({ active }) => (
-                        <Link to="/cuotas" className={`block px-4 py-2 ${active ? "bg-[#B80000] text-white" : ""}`}>
+                        <Link
+                          to="/cuotas"
+                          className={`block px-4 py-2 ${
+                            active ? "bg-[#B80000] text-white" : ""
+                          }`}
+                        >
                           Cuotas
                         </Link>
                       )}
@@ -93,14 +120,24 @@ export default function Navbar() {
                   <>
                     <Menu.Item>
                       {({ active }) => (
-                        <Link to="/asociarme" className={`block px-4 py-2 ${active ? "bg-[#B80000] text-white" : ""}`}>
+                        <Link
+                          to="/asociarme"
+                          className={`block px-4 py-2 ${
+                            active ? "bg-[#B80000] text-white" : ""
+                          }`}
+                        >
                           Asociarme
                         </Link>
                       )}
                     </Menu.Item>
                     <Menu.Item>
                       {({ active }) => (
-                        <Link to="/login" className={`block px-4 py-2 ${active ? "bg-[#B80000] text-white" : ""}`}>
+                        <Link
+                          to="/login"
+                          className={`block px-4 py-2 ${
+                            active ? "bg-[#B80000] text-white" : ""
+                          }`}
+                        >
                           Iniciar sesión
                         </Link>
                       )}
@@ -115,3 +152,4 @@ export default function Navbar() {
     </nav>
   );
 }
+

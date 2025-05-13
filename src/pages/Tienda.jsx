@@ -1,46 +1,48 @@
 import React, { useState } from "react";
 
+const base = import.meta.env.BASE_URL;
+
 const productos = [
   {
     id: 1,
     nombre: "Camiseta Oficial de Fútbol",
     descripcion: "Camiseta titular del Club Atlético Lamarque, edición 2024.",
-    imagen: "/clublamarque/tienda/camiseta.png",
+    imagen: `${base}tienda/camiseta.png`,
     precio: 8500,
   },
   {
     id: 2,
     nombre: "Short de Entrenamiento",
     descripcion: "Short azul con escudo del club, tela deportiva.",
-    imagen: "/clublamarque/tienda/short.png",
+    imagen: `${base}tienda/short.png`,
     precio: 4800,
   },
   {
     id: 3,
     nombre: "Campera Rompeviento",
     descripcion: "Campera impermeable azulgrana, edición invierno 2024.",
-    imagen: "/clublamarque/tienda/campera.png",
+    imagen: `${base}tienda/campera.png`,
     precio: 11200,
   },
   {
     id: 4,
     nombre: "Rodilleras de Vóley",
     descripcion: "Protección de alta absorción para jugadores de vóley.",
-    imagen: "/clublamarque/tienda/rodilleras.png",
+    imagen: `${base}tienda/rodilleras.png`,
     precio: 3100,
   },
   {
     id: 5,
     nombre: "Gorra de Entrenamiento",
     descripcion: "Gorra ligera ideal para actividades al aire libre.",
-    imagen: "/clublamarque/tienda/gorra.png",
+    imagen: `${base}tienda/gorra.png`,
     precio: 2200,
   },
   {
     id: 6,
     nombre: "Mochila Deportiva CAL",
     descripcion: "Mochila azulgrana con el escudo bordado del club.",
-    imagen: "/clublamarque/tienda/mochila.png",
+    imagen: `${base}tienda/mochila.png`,
     precio: 6800,
   },
 ];
@@ -67,7 +69,6 @@ export default function Tienda() {
       </h2>
 
       <div className="grid md:grid-cols-3 gap-8">
-
         {/* Productos */}
         <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
           {productos.map((producto) => (
@@ -83,9 +84,13 @@ export default function Tienda() {
                 />
               </div>
               <div className="p-5 space-y-3">
-                <h3 className="text-xl font-bold text-azulgrana-rojo">{producto.nombre}</h3>
+                <h3 className="text-xl font-bold text-azulgrana-rojo">
+                  {producto.nombre}
+                </h3>
                 <p className="text-gray-600 text-sm">{producto.descripcion}</p>
-                <p className="text-lg font-bold text-green-600">${producto.precio}</p>
+                <p className="text-lg font-bold text-green-600">
+                  ${producto.precio}
+                </p>
                 <button
                   onClick={() => agregarAlCarrito(producto)}
                   className="bg-azulgrana-azul hover:bg-azulgrana-rojo text-white w-full py-2 rounded-full font-semibold transition-colors duration-300"
@@ -105,11 +110,16 @@ export default function Tienda() {
             </h3>
 
             {carrito.length === 0 ? (
-              <p className="text-gray-500 text-center">Tu carrito está vacío</p>
+              <p className="text-gray-500 text-center">
+                Tu carrito está vacío
+              </p>
             ) : (
               <ul className="space-y-4">
                 {carrito.map((item, index) => (
-                  <li key={index} className="flex justify-between items-center border-b pb-2">
+                  <li
+                    key={index}
+                    className="flex justify-between items-center border-b pb-2"
+                  >
                     <span className="text-gray-700">{item.nombre}</span>
                     <button
                       className="text-red-500 text-xs hover:underline"

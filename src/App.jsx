@@ -16,7 +16,7 @@ import ScrollToTopButton from "./components/ScrollToTopButton";
 
 function App() {
   return (
-    <Router basename="/clublamarque">
+    <Router basename={import.meta.env.BASE_URL}>
       <Navbar />
       <div className="bg-gray-50 min-h-screen p-4">
         <Routes>

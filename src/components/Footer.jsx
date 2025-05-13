@@ -2,6 +2,8 @@ import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 
+const base = import.meta.env.BASE_URL;
+
 export default function Footer() {
   const [sliderRef] = useKeenSlider({
     loop: true,
@@ -22,13 +24,22 @@ export default function Footer() {
     },
   });
 
+  const sponsors = [
+    { nombre: "Atomik", logo: `${base}sponsors/atomik.png` },
+    { nombre: "Coca-Cola", logo: `${base}sponsors/cocacola.png` },
+    { nombre: "YPF", logo: `${base}sponsors/ypf.png` },
+    { nombre: "Banco Nación", logo: `${base}sponsors/bna.png` },
+    { nombre: "Adidas", logo: `${base}sponsors/adidas.png` },
+    { nombre: "Red Bull", logo: `${base}sponsors/redbull.png` },
+    { nombre: "Flow", logo: `${base}sponsors/flow.png` },
+  ];
+
   return (
     <footer className="bg-azulgrana-azul text-white pt-10 mt-20">
-
       {/* Logo institucional */}
       <div className="flex justify-center my-6">
         <img
-          src="/clublamarque/esc/escudo11.png"
+          src={`${base}esc/escudo11.png`}
           alt="Logo Club Atlético Lamarque"
           className="h-40 w-auto"
         />
@@ -38,13 +49,22 @@ export default function Footer() {
       <div className="text-center mb-6">
         <h3 className="text-lg font-semibold mb-2">Seguinos en nuestras redes</h3>
         <div className="flex justify-center gap-6 text-3xl">
-          <a href="https://facebook.com" className="text-white hover:text-[#B80000] transition duration-300">
+          <a
+            href="https://facebook.com"
+            className="text-white hover:text-[#B80000] transition duration-300"
+          >
             <FaFacebookF />
           </a>
-          <a href="https://instagram.com" className="text-white hover:text-[#B80000] transition duration-300">
+          <a
+            href="https://instagram.com"
+            className="text-white hover:text-[#B80000] transition duration-300"
+          >
             <FaInstagram />
           </a>
-          <a href="https://youtube.com" className="text-white hover:text-[#B80000] transition duration-300">
+          <a
+            href="https://youtube.com"
+            className="text-white hover:text-[#B80000] transition duration-300"
+          >
             <FaYoutube />
           </a>
         </div>
@@ -54,24 +74,12 @@ export default function Footer() {
       <div className="my-10 w-full">
         <h3 className="text-center text-lg font-semibold mb-4">Sponsors Oficiales</h3>
         <div ref={sliderRef} className="keen-slider w-full overflow-hidden">
-          {[
-            { nombre: "Atomik", logo: "/clublamarque/sponsors/atomik.png" },
-            { nombre: "Coca-Cola", logo: "/clublamarque/sponsors/cocacola.png" },
-            { nombre: "YPF", logo: "/clublamarque/sponsors/ypf.png" },
-            { nombre: "Banco Nación", logo: "/clublamarque/sponsors/bna.png" },
-            { nombre: "Adidas", logo: "/clublamarque/sponsors/adidas.png" },
-            { nombre: "Red Bull", logo: "/clublamarque/sponsors/redbull.png" },
-            { nombre: "Flow", logo: "/clublamarque/sponsors/flow.png" },
-          ].map((s, i) => (
+          {sponsors.map((s, i) => (
             <div
               key={i}
               className="keen-slider__slide flex items-center justify-center px-6 py-4 h-32"
             >
-              <img
-                src={s.logo}
-                alt={s.nombre}
-                className="h-24 object-contain"
-              />
+              <img src={s.logo} alt={s.nombre} className="h-24 object-contain" />
             </div>
           ))}
         </div>

@@ -2,15 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Ruta del favicon con el subdirectorio -->
-    <link rel="icon" href="/club-app/vite.svg" />
+    <!-- favicon desde public/ -->
+    <link rel="icon" href="%BASE_URL%favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
+    <title>Club App</title>
   </head>
   <body>
     <div id="root"></div>
-
-    <!-- Ruta del script con el subdirectorio -->
-    <script type="module" src="src/main.jsx"></script>
+    <!-- En dev carga /src/main.jsx, en build Vite lo sustituye por el bundle correcto -->
+    <script type="module" src="%BASE_URL%src/main.jsx"></script>
   </body>
 </html>

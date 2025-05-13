@@ -1,8 +1,8 @@
 // vite.config.js
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-export default defineConfig({
-  base: '/club-app/', // Asegúrate de que esta línea esté presente
+export default defineConfig(({ command }) => ({
+  base: command === 'serve' ? '/' : '/club-app/',
   plugins: [react()],
-});
+}))
